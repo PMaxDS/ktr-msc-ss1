@@ -20,5 +20,7 @@ public class Main {
         mage.moveLeft();
         mage.moveBack();
         mage.moveForward();
+        warrior.unsheathe();
+        mage.unsheathe();
     }
 }
