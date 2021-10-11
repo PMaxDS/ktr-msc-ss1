@@ -1,6 +1,8 @@
 package com.epitech.mobs;
 
-public abstract class Character {
+import com.epitech.interfaces.Movable;
+
+public abstract class Character implements Movable {
 
     protected String name;
     protected Integer life = 50;
@@ -49,5 +51,21 @@ public abstract class Character {
 
     public String getRPGClass() {
         return RPGClass;
+    }
+
+    public void moveRight() {
+        System.out.println(this.name + ": moves right");
+    }
+
+    public void moveLeft() {
+        System.out.println(this.name + ": moves left");
+    }
+
+    public void moveForward() {
+        System.out.println(this.name + ": moves forward");
+    }
+
+    public void moveBack() {
+        System.out.println(this.name + ": moves back");
     }
 }
