@@ -1,6 +1,4 @@
-package com.epitech.mobs.implementations;
-
-import com.epitech.mobs.Character;
+package com.epitech.exceptions;
 
 public class Mage extends Character {
 
@@ -14,9 +12,8 @@ public class Mage extends Character {
         System.out.println(this.name + ": May the gods be with me.");
     }
 
-    public void attack(String weapon){
-        if(weapon.equals("magic") || weapon.equals("wand"))
-            super.attack(weapon);
+    public void attack(String weapon) throws WeaponException {
+        super.attack(weapon);
     }
 
     @Override

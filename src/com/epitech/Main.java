@@ -1,8 +1,9 @@
 package com.epitech;
 
-import com.epitech.mobs.Character;
-import com.epitech.mobs.implementations.Mage;
-import com.epitech.mobs.implementations.Warrior;
+import com.epitech.exceptions.Character;
+import com.epitech.exceptions.Mage;
+import com.epitech.exceptions.Warrior;
+import com.epitech.exceptions.WeaponException;
 
 public class Main {
 
@@ -12,15 +13,13 @@ public class Main {
         Character warrior = new Warrior("Jean-Luc");
         Character mage = new Mage("Robert");
 
-        warrior.moveRight();
-        warrior.moveLeft();
-        warrior.moveBack();
-        warrior.moveForward();
-        mage.moveRight();
-        mage.moveLeft();
-        mage.moveBack();
-        mage.moveForward();
-        warrior.unsheathe();
-        mage.unsheathe();
+        warrior.tryToAttack("screwdriver");
+        mage.tryToAttack("hammer");
+        warrior.tryToAttack("hammer");
+        try {
+            mage.attack("");
+        } catch (WeaponException e){
+            System.out.println(e.getMessage());
+        }
     }
 }

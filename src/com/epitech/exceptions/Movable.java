@@ -1,4 +1,4 @@
-package com.epitech.interfaces;
+package com.epitech.exceptions;
 
 public interface Movable {
 
