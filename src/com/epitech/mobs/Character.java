@@ -7,14 +7,24 @@ public abstract class Character {
     protected Integer agility = 2;
     protected Integer strength = 2;
     protected Integer wit = 2;
-    protected String RPGClass = this.getClass().getSuperclass().getSimpleName();
+    protected String RPGClass = this.getClass().getSimpleName();
 
     public Character(String name){
         this.name = name;
     }
 
-    public void attack(String weapon){
+    public void attack(String weapon) {
         System.out.println(this.name + ": Rrrrrrrrr....");
+        switch (RPGClass) {
+            case ("Warrior"):
+                System.out.println(this.name + ": I'll crush you with my " + weapon);
+                break;
+            case ("Mage"):
+                System.out.println(this.name + ": Feel the power of my " + weapon);
+                break;
+            default:
+                break;
+        }
     }
 
     public String getName() {
