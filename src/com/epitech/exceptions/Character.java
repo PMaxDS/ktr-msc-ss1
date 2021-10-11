@@ -1,6 +1,4 @@
-package com.epitech.mobs;
-
-import com.epitech.interfaces.Movable;
+package com.epitech.exceptions;
 
 public abstract class Character implements Movable {
 
@@ -15,14 +13,34 @@ public abstract class Character implements Movable {
         this.name = name;
     }
 
-    public void attack(String weapon) {
-        System.out.println(this.name + ": Rrrrrrrrr....");
+    public void tryToAttack(String weapon){
+        try {
+            this.attack(weapon);
+        } catch (WeaponException e){
+            System.out.println(e.getMessage());
+        }
+
+    }
+
+    public void attack(String weapon) throws WeaponException{
+        if(weapon.equals(""))
+            throw new WeaponException(this.name+": I refuse to fight with my bare hands.");
         switch (RPGClass) {
             case ("Warrior"):
-                System.out.println(this.name + ": I'll crush you with my " + weapon);
+                if(weapon.equals("hammer") || weapon.equals("sword")){
+                    System.out.println(this.name + ": Rrrrrrrrr....");
+                    System.out.println(this.name + ": I'll crush you with my " + weapon);
+                }
+                else
+                    throw new WeaponException(this.name+": A "+weapon+"?? What should I do with this?!");
                 break;
             case ("Mage"):
-                System.out.println(this.name + ": Feel the power of my " + weapon);
+                if(weapon.equals("magic") || weapon.equals("wand")){
+                    System.out.println(this.name + ": Rrrrrrrrr....");
+                    System.out.println(this.name + ": Feel the power of my " + weapon);
+                }
+                else
+                    throw new WeaponException(this.name+": I don't need this stupid "+weapon+"! Don't misjudge my powers!");
                 break;
             default:
                 break;
